@@ -1,0 +1,35 @@
+﻿<Window x:Class="Managment_System.ProductManagment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Managment_System"
+        mc:Ignorable="d"
+        Title="ProductManagment" Height="450" Width="800" >
+
+    <Grid Background="LightGray">
+        <Grid Background="DarkGray" Margin="0,374,-0.4,0"></Grid>
+
+        <Label Content="Product Managment" HorizontalAlignment="Left" Margin="0,378,0,-4" VerticalAlignment="Bottom" Width="210" Height="46" FontSize="21" FontFamily="Georgia" FontWeight="Normal" FontStyle="Italic"/>
+        <Label Content="Product List" HorizontalAlignment="Left" Margin="480,0,0,364" VerticalAlignment="Bottom" Width="127" Height="46" FontSize="21" FontFamily="Georgia" FontWeight="Normal" FontStyle="Italic"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="17,51,0,0" VerticalAlignment="Top" Width="63" Height="25"/>
+        <Label Content="Price" HorizontalAlignment="Left" Margin="17,82,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.068,-0.797" Width="63" Height="25"/>
+        <Label Content="Search ID" HorizontalAlignment="Left" Margin="17,276,0,0" VerticalAlignment="Top" Width="63" Height="26"/>
+        <Label Content="Category" HorizontalAlignment="Left" Margin="17,113,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,-1.422" Width="63" Height="25"/>
+
+
+        <TextBox x:Name="name_txt" HorizontalAlignment="Left" Height="22" Margin="97,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <TextBox x:Name="price_txt" HorizontalAlignment="Left" Height="22" Margin="97,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <TextBox x:Name="search_txt" HorizontalAlignment="Left" Height="23" Margin="97,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <TextBox x:Name="category_txt" HorizontalAlignment="Left" Height="22" Margin="97,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+
+
+        <DataGrid x:Name="datagrid" Margin="300,45,15.6,70"/>
+        <Button x:Name="AddBtn" Content="Add" HorizontalAlignment="Left" Margin="97,151,0,0" VerticalAlignment="Top" Width="86" Height="37" Click="AddBtn_Click"/>
+        <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Left" Margin="97,313,0,0" VerticalAlignment="Top" Width="86" Height="38" Click="UpdateBtn_Click"/>
+        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="197,313,0,0" VerticalAlignment="Top" Width="87" Height="37" Click="DeleteBtn_Click"/>
+        <Button x:Name="ClearDataBtn" Content="Clear Data" HorizontalAlignment="Left" Margin="197,151,0,0" VerticalAlignment="Top" Width="87" Height="37" Click="ClearDataBtn_Click"/>
+        <Button x:Name="ReturnBtn" Content="Return to main menu" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="643,0,0,10" Click="ReturnBtn_Click" Width="135" Height="23"/>
+    </Grid>
+
+</Window>

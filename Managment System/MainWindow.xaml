@@ -5,27 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Managment_System"
         mc:Ignorable="d"
-        Title="Product Managment Window" Height="450" Width="800">
-    <Grid Background="LightGray">
-        <Label Content="Manage Products" HorizontalAlignment="Left" Margin="609,364,0,0" VerticalAlignment="Top" Width="175" Height="46" FontSize="21"/>
-        <Label Content="Name" HorizontalAlignment="Left" Margin="17,64,0,0" VerticalAlignment="Top" Width="63"/>
-        <Label Content="Price" HorizontalAlignment="Left" Margin="17,95,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.068,-0.797" Width="63"/>
-        <Label Content="ID Search" HorizontalAlignment="Left" Margin="17,276,0,0" VerticalAlignment="Top" Width="63" Height="26"/>
-        <Label Content="Category" HorizontalAlignment="Left" Margin="17,126,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,-1.422" Width="63"/>
+        Title="Product Managment Window" Height="500" Width="1000">
 
 
-        <TextBox x:Name="name_txt" HorizontalAlignment="Left" Height="23" Margin="97,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
-        <TextBox x:Name="price_txt" HorizontalAlignment="Left" Height="23" Margin="97,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
-        <TextBox x:Name="search_txt" HorizontalAlignment="Left" Height="23" Margin="97,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
-        <TextBox x:Name="category_txt" HorizontalAlignment="Left" Height="23" Margin="97,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
-        <ComboBox HorizontalAlignment="Left" Margin="381,26,0,0" VerticalAlignment="Top" Width="187"/>
+
+    <Grid Background="LightGray" Margin="0,0,-6.4,0">
+        <Grid Background="DarkGray" Margin="0,0,0,51.4"> </Grid>
+        
+        <Label Content="Main Menu" HorizontalAlignment="Right" Margin="655,374,-71.4,0" VerticalAlignment="Bottom" Width="210" Height="46" FontSize="21" FontFamily="Georgia" FontWeight="Normal" FontStyle="Italic"/>
+        <Label Content="AGARMKOW MANAGMENT SYSTEM" HorizontalAlignment="Center" Margin="35,10,29,0" VerticalAlignment="Top" FontSize="40" FontFamily="Times New Roman" FontWeight="SemiBold" Width="736"/>
+
+        <Button x:Name="EmployeeBtn" Content="Employee Managment" HorizontalAlignment="Center" Margin="181,135,507,245.4" VerticalAlignment="Center" Width="312" Height="90" FontSize="20" Click="EmployeeBtn_Click"/>
+        <Button x:Name="ProductBtn" Content="Product Managment" HorizontalAlignment="Center" Margin="81,225,407,105" VerticalAlignment="Center" Width="312" Height="90" FontSize="20" Click="ProductBtn_Click"/>
+        <Button x:Name="OrderBtn" Content="Order Managment" HorizontalAlignment="Center" Margin="426,110,61,220" VerticalAlignment="Center" Width="313" Height="90" FontSize="20" Click="OrderBtn_Click"/>
+        <Button x:Name="CategoryBtn" Content="Category Managment" HorizontalAlignment="Center" Margin="426,225,61,105" VerticalAlignment="Center" Width="313" Height="90" FontSize="20" Click="CategoryBtn_Click"/>
 
 
-        <DataGrid x:Name="datagrid" HorizontalAlignment="Left" Height="286" Margin="300,64,0,0" VerticalAlignment="Top" Width="472"/>
-        <Button x:Name="AddBtn" Content="Add" HorizontalAlignment="Left" Margin="97,166,0,0" VerticalAlignment="Top" Width="86" Height="37" Click="AddBtn_Click"/>
-        <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Left" Margin="97,313,0,0" VerticalAlignment="Top" Width="86" Height="38" Click="UpdateBtn_Click"/>
-        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="197,313,0,0" VerticalAlignment="Top" Width="87" Height="37" Click="DeleteBtn_Click"/>
-        <Button x:Name="ClearDataBtn" Content="Clear Data" HorizontalAlignment="Left" Margin="197,166,0,0" VerticalAlignment="Top" Width="87" Height="37" Click="ClearDataBtn_Click"/>
-
+        
     </Grid>
+    
 </Window>

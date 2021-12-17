@@ -25,135 +25,38 @@ namespace Managment_System
         public MainWindow()
         {
             InitializeComponent();
-            LoadGrid();
         }
 
-        //accessing database for the data grid
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-G3GFTK2;Initial Catalog=CanteenDB;Integrated Security=True");
-
-        //class for clearing out the data
-        public void clearData()
+        //Redirecting to the Employee Managment window
+        private void EmployeeBtn_Click(object sender, RoutedEventArgs e)
         {
-            name_txt.Clear();
-            price_txt.Clear();
-            category_txt.Clear();
-            search_txt.Clear();
+            EmployeeManagment window = new EmployeeManagment();
+            window.Show();
+            Close();
         }
 
-        //loading the database information in the data grid
-        public void LoadGrid()
+        //Redirecting to Order Managment Window
+        private void OrderBtn_Click(object sender, RoutedEventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("select * from FoodItems", con);
-            DataTable dt = new DataTable();
-            con.Open();
-            SqlDataReader sdr = cmd.ExecuteReader();
-            dt.Load(sdr);
-            con.Close();
-            datagrid.ItemsSource = dt.DefaultView;
-
+            OrderManagment window = new OrderManagment();
+            window.Show();
+            Close();
         }
 
-        //button function for clearing the data from the text fields
-        private void ClearDataBtn_Click(object sender, RoutedEventArgs e)
+        //Redirecting to Production Managment Window
+        private void ProductBtn_Click(object sender, RoutedEventArgs e)
         {
-            clearData();
+            ProductManagment window = new ProductManagment();
+            window.Show();
+            Close();
         }
 
-        //ensuring that text field are fullfilled before adding data
-        public bool IsValid()
+        //Redirecting to Category Managment Window
+        private void CategoryBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (name_txt.Text == string.Empty)
-            {
-                MessageBox.Show("Name is required", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
-            if (price_txt.Text == string.Empty)
-            {
-                MessageBox.Show("Price is required", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
-            if (category_txt.Text == string.Empty)
-            {
-                MessageBox.Show("Category is required", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
-            return true;
-        }
-
-        //button function for adding data from the fields in the database
-        private void AddBtn_Click(object sender, RoutedEventArgs e)
-        {
-                try
-                {
-                    if (IsValid())
-                    {
-                    //command to be executed in the database
-                        SqlCommand cmd = new SqlCommand("INSERT INTO FoodItems VALUES (@ItemName, @ItemPrice, @CategoryNumber)", con);
-                        cmd.CommandType = CommandType.Text;
-                    //set parameter values
-                        cmd.Parameters.AddWithValue("@ItemName", name_txt.Text);
-                        cmd.Parameters.AddWithValue("@ItemPrice", price_txt.Text);
-                        cmd.Parameters.AddWithValue("@CategoryNumber",category_txt.Text);
-                        con.Open();
-                    cmd.ExecuteNonQuery();
-                        con.Close();
-                        LoadGrid();
-                        MessageBox.Show("Successfully registered", "Saved", MessageBoxButton.OK, MessageBoxImage.Information);
-                        clearData();
-                    }
-
-                }catch (SqlException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-
-        }
-
-        //button function for deleting data from the fields in the database
-        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
-        {
-            con.Open();
-            SqlCommand cmd = new SqlCommand("delete from FoodItems where ItemId = " +search_txt.Text+ " ", con);
-            try
-            {
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Entry deleted successfully", "Deleted", MessageBoxButton.OK, MessageBoxImage.Information);
-                con.Close();
-                clearData();
-                LoadGrid();
-                con.Close();
-
-            } catch (SqlException ex)
-            {
-                MessageBox.Show("Not Deleted" +ex.Message);
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
-
-        //button function for updating the data from existing fields in the database
-        private void UpdateBtn_Click(object sender, RoutedEventArgs e)
-        {
-            con.Open();
-            SqlCommand cmd = new SqlCommand("update FoodItems set ItemName = '"+name_txt.Text+"', ItemPrice = '"+price_txt.Text+"', CategoryNumber = '"+category_txt.Text+"' WHERE ItemId = '"+search_txt.Text+"' ", con);
-
-            try
-            {
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Entry updated succsessfully", "Updated", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            } catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            } 
-            finally
-            {
-                con.Close();
-                clearData();
-                LoadGrid();
-            }
+            CategoryManagment window = new CategoryManagment();
+            window.Show();
+            Close();
         }
     }
 }
