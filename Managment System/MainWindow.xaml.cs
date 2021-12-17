@@ -36,8 +36,8 @@ namespace Managment_System
         {
             name_txt.Clear();
             price_txt.Clear();
-            id_txt.Clear();
             category_txt.Clear();
+            search_txt.Clear();
         }
 
         //loading the database information in the data grid
@@ -59,6 +59,7 @@ namespace Managment_System
             clearData();
         }
 
+        //ensuring that text field are fullfilled before adding data
         public bool IsValid()
         {
             if (name_txt.Text == string.Empty)
@@ -71,11 +72,6 @@ namespace Managment_System
                 MessageBox.Show("Price is required", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
-            if (id_txt.Text == string.Empty)
-            {
-                MessageBox.Show("ID is required", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
             if (category_txt.Text == string.Empty)
             {
                 MessageBox.Show("Category is required", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -84,23 +80,22 @@ namespace Managment_System
             return true;
         }
 
-        //button function for adding data from the text fields
+        //button function for adding data from the fields in the database
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (IsValid())
-            {
                 try
                 {
                     if (IsValid())
                     {
-                        SqlCommand cmd = new SqlCommand("INSERT INTO FoodItems VALUES (@ItemName, @ItemPrice, @ItemId, @CategoryNumber)", con);
+                    //command to be executed in the database
+                        SqlCommand cmd = new SqlCommand("INSERT INTO FoodItems VALUES (@ItemName, @ItemPrice, @CategoryNumber)", con);
                         cmd.CommandType = CommandType.Text;
+                    //set parameter values
                         cmd.Parameters.AddWithValue("@ItemName", name_txt.Text);
                         cmd.Parameters.AddWithValue("@ItemPrice", price_txt.Text);
-                        cmd.Parameters.AddWithValue("@ItemId", id_txt.Text);
-                        cmd.Parameters.AddWithValue("@CategoryNumber", category_txt.Text);
+                        cmd.Parameters.AddWithValue("@CategoryNumber",category_txt.Text);
                         con.Open();
-                        cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
                         con.Close();
                         LoadGrid();
                         MessageBox.Show("Successfully registered", "Saved", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -111,6 +106,53 @@ namespace Managment_System
                 {
                     MessageBox.Show(ex.Message);
                 }
+
+        }
+
+        //button function for deleting data from the fields in the database
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("delete from FoodItems where ItemId = " +search_txt.Text+ " ", con);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Entry deleted successfully", "Deleted", MessageBoxButton.OK, MessageBoxImage.Information);
+                con.Close();
+                clearData();
+                LoadGrid();
+                con.Close();
+
+            } catch (SqlException ex)
+            {
+                MessageBox.Show("Not Deleted" +ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        //button function for updating the data from existing fields in the database
+        private void UpdateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("update FoodItems set ItemName = '"+name_txt.Text+"', ItemPrice = '"+price_txt.Text+"', CategoryNumber = '"+category_txt.Text+"' WHERE ItemId = '"+search_txt.Text+"' ", con);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Entry updated succsessfully", "Updated", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            } catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            } 
+            finally
+            {
+                con.Close();
+                clearData();
+                LoadGrid();
             }
         }
     }
