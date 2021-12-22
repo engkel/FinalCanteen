@@ -27,13 +27,6 @@ namespace Managment_System
             LoadGrid();
         }
 
-        private void ReturnBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow window = new MainWindow();
-            window.Show();
-            Close();
-        }
-
         //accessing database for the data grid
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-G3GFTK2;Initial Catalog=CanteenDB;Integrated Security=True");
 
@@ -59,6 +52,14 @@ namespace Managment_System
 
         }
 
+        //button function for returning to the main menu window
+        private void ReturnBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow window = new MainWindow();
+            window.Show();
+            Close();
+        }
+
         //button function for clearing the data from the text fields
         private void ClearDataBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -70,17 +71,17 @@ namespace Managment_System
         {
             if (name_txt.Text == string.Empty)
             {
-                MessageBox.Show("Name is required", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Product Name is required", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             if (price_txt.Text == string.Empty)
             {
-                MessageBox.Show("Price is required", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Product Price is required", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             if (category_txt.Text == string.Empty)
             {
-                MessageBox.Show("Category is required", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Product Category is required", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             return true;
@@ -93,10 +94,8 @@ namespace Managment_System
             {
                 if (IsValid())
                 {
-                    //command to be executed in the database
                     SqlCommand cmd = new SqlCommand("INSERT INTO FoodItems VALUES (@ItemName, @ItemPrice, @CategoryNumber)", con);
                     cmd.CommandType = CommandType.Text;
-                    //set parameter values
                     cmd.Parameters.AddWithValue("@ItemName", name_txt.Text);
                     cmd.Parameters.AddWithValue("@ItemPrice", price_txt.Text);
                     cmd.Parameters.AddWithValue("@CategoryNumber", category_txt.Text);

@@ -11,19 +11,22 @@
 
         <Label Content="Category Managment" HorizontalAlignment="Left" Margin="0,0,0,-4" VerticalAlignment="Bottom" Width="222" Height="46" FontSize="21" FontFamily="Georgia" FontWeight="Normal" FontStyle="Italic"/>
         <Label Content="Category List" HorizontalAlignment="Left" Margin="474,0,0,364" VerticalAlignment="Bottom" Width="144" Height="46" FontSize="21" FontFamily="Georgia" FontWeight="Normal" FontStyle="Italic"/>
-        <Label Content="ID" HorizontalAlignment="Left" Margin="19,50,0,0" VerticalAlignment="Top" Width="60" Height="26"/>
-        <Label Content="Name" HorizontalAlignment="Left" Margin="19,86,0,0" VerticalAlignment="Top" Width="60" Height="26"/>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="19,50,0,0" VerticalAlignment="Top" Width="60" Height="29"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="19,84,0,0" VerticalAlignment="Top" Width="60" Height="29"/>
+        <Label Content="Search ID" HorizontalAlignment="Left" Margin="19,269,0,0" VerticalAlignment="Top"/>
 
         <Button x:Name="ReturnBtn" Content="Return to main menu" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="643,0,0,10" Click="ReturnBtn_Click" Width="135" Height="23"/>
-        <DataGrid HorizontalAlignment="Left" Height="315" Margin="304,41,0,0" VerticalAlignment="Top" Width="474"/>
+        <DataGrid x:Name="datagrid" HorizontalAlignment="Left" Height="315" Margin="304,41,0,0" VerticalAlignment="Top" Width="474"/>
 
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="84,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207"/>
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="84,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207"/>
+        <TextBox x:Name="Id_txt" HorizontalAlignment="Left" Height="24" Margin="84,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207"/>
+        <TextBox x:Name="name_txt" HorizontalAlignment="Left" Height="25" Margin="84,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207"/>
+        <TextBox x:Name="search_txt" HorizontalAlignment="Left" Height="26" Margin="84,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207"/>
 
-        <Button x:Name="AddBtn" Content="Add" HorizontalAlignment="Left" Margin="84,123,0,0" VerticalAlignment="Top" Width="97" Height="31"/>
-        <Button x:Name="ClearDataBtn" Content="Clear Data" HorizontalAlignment="Left" Margin="194,123,0,0" VerticalAlignment="Top" Width="97" Height="31"/>
-        <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Left" Margin="84,163,0,0" VerticalAlignment="Top" Width="97" Height="30"/>
-        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="194,163,0,0" VerticalAlignment="Top" Width="97" Height="30"/>
+
+        <Button x:Name="AddBtn" Content="Add" HorizontalAlignment="Left" Margin="84,131,0,0" VerticalAlignment="Top" Width="97" Height="34" Click="AddBtn_Click"/>
+        <Button x:Name="ClearDataBtn" Content="Clear Data" HorizontalAlignment="Left" Margin="194,131,0,0" VerticalAlignment="Top" Width="97" Height="34" Click="ClearDataBtn_Click"/>
+        <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Left" Margin="84,309,0,0" VerticalAlignment="Top" Width="97" Height="34" Click="UpdateBtn_Click"/>
+        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="194,309,0,0" VerticalAlignment="Top" Width="97" Height="34" Click="DeleteBtn_Click"/>
         
     </Grid>
 </Window>

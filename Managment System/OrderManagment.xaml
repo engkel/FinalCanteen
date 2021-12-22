@@ -10,12 +10,13 @@
         <Grid Background="DarkGray" Margin="0,374,-0.4,0"></Grid>
 
         <Label Content="Order Managment" HorizontalAlignment="Left" Margin="0,378,0,-4" VerticalAlignment="Bottom" Width="210" Height="46" FontSize="21" FontFamily="Georgia" FontWeight="Normal" FontStyle="Italic"/>
-        <Label Content="Employees List" HorizontalAlignment="Left" Margin="96,0,0,364" VerticalAlignment="Bottom" Width="160" Height="46" FontSize="21" FontFamily="Georgia" FontWeight="Normal" FontStyle="Italic"/>
-        <Label Content="Products List" HorizontalAlignment="Left" Margin="496,0,0,364" VerticalAlignment="Bottom" Width="139" Height="46" FontSize="21" FontFamily="Georgia" FontWeight="Normal" FontStyle="Italic"/>
+        <Label Content="Employees List" HorizontalAlignment="Left" Margin="36,0,0,364" VerticalAlignment="Bottom" Width="167" Height="46" FontSize="21" FontFamily="Georgia" FontWeight="Normal" FontStyle="Italic"/>
+        <Label Content="Products List" HorizontalAlignment="Left" Margin="245,0,0,364" VerticalAlignment="Bottom" Width="145" Height="46" FontSize="21" FontFamily="Georgia" FontWeight="Normal" FontStyle="Italic"/>
 
         <Button x:Name="ReturnBtn" Content="Return to main menu" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="643,0,0,10" Click="ReturnBtn_Click" Width="135" Height="23"/>
-        <DataGrid HorizontalAlignment="Left" Height="183" Margin="20,44,0,0" VerticalAlignment="Top" Width="305"/>
-        <DataGrid HorizontalAlignment="Left" Height="183" Margin="345,44,0,0" VerticalAlignment="Top" Width="433"/>
+        <DataGrid x:Name="empGrid" HorizontalAlignment="Left" Height="183" Margin="22,44,0,0" VerticalAlignment="Top" Width="181"/>
+        <DataGrid x:Name="productGrid" HorizontalAlignment="Left" Height="183" Margin="223,44,0,0" VerticalAlignment="Top" Width="180"/>
+        <DataGrid HorizontalAlignment="Left" Height="182" Margin="426,45,0,0" VerticalAlignment="Top" Width="352"/>
 
     </Grid>
 </Window>

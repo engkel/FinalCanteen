@@ -12,23 +12,21 @@
 
         <Label Content="Product Managment" HorizontalAlignment="Left" Margin="0,378,0,-4" VerticalAlignment="Bottom" Width="210" Height="46" FontSize="21" FontFamily="Georgia" FontWeight="Normal" FontStyle="Italic"/>
         <Label Content="Product List" HorizontalAlignment="Left" Margin="480,0,0,364" VerticalAlignment="Bottom" Width="127" Height="46" FontSize="21" FontFamily="Georgia" FontWeight="Normal" FontStyle="Italic"/>
-        <Label Content="Name" HorizontalAlignment="Left" Margin="17,51,0,0" VerticalAlignment="Top" Width="63" Height="25"/>
-        <Label Content="Price" HorizontalAlignment="Left" Margin="17,82,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.068,-0.797" Width="63" Height="25"/>
-        <Label Content="Search ID" HorizontalAlignment="Left" Margin="17,276,0,0" VerticalAlignment="Top" Width="63" Height="26"/>
-        <Label Content="Category" HorizontalAlignment="Left" Margin="17,113,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,-1.422" Width="63" Height="25"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="17,58,0,0" VerticalAlignment="Top" Width="63" Height="23" RenderTransformOrigin="0.5,0.5"/>
+        <Label Content="Price" HorizontalAlignment="Left" Margin="17,89,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.068,-0.797" Width="63" Height="27"/>
+        <Label Content="Search ID" HorizontalAlignment="Left" Margin="17,267,0,0" VerticalAlignment="Top" Width="63" Height="27"/>
+        <Label Content="Category" HorizontalAlignment="Left" Margin="17,116,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,-1.422" Width="63" Height="26"/>
 
-
-        <TextBox x:Name="name_txt" HorizontalAlignment="Left" Height="22" Margin="97,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
-        <TextBox x:Name="price_txt" HorizontalAlignment="Left" Height="22" Margin="97,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
-        <TextBox x:Name="search_txt" HorizontalAlignment="Left" Height="23" Margin="97,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
-        <TextBox x:Name="category_txt" HorizontalAlignment="Left" Height="22" Margin="97,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
-
+        <TextBox x:Name="name_txt" HorizontalAlignment="Left" Height="25" Margin="97,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" RenderTransformOrigin="0.5,0.5"/>
+        <TextBox x:Name="price_txt" HorizontalAlignment="Left" Height="25" Margin="97,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" RenderTransformOrigin="0.5,0.5"/>
+        <TextBox x:Name="search_txt" HorizontalAlignment="Left" Height="22" Margin="97,267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <TextBox x:Name="category_txt" HorizontalAlignment="Left" Height="25" Margin="97,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" RenderTransformOrigin="0.5,0.5"/>
 
         <DataGrid x:Name="datagrid" Margin="300,45,15.6,70"/>
-        <Button x:Name="AddBtn" Content="Add" HorizontalAlignment="Left" Margin="97,151,0,0" VerticalAlignment="Top" Width="86" Height="37" Click="AddBtn_Click"/>
-        <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Left" Margin="97,313,0,0" VerticalAlignment="Top" Width="86" Height="38" Click="UpdateBtn_Click"/>
-        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="197,313,0,0" VerticalAlignment="Top" Width="87" Height="37" Click="DeleteBtn_Click"/>
-        <Button x:Name="ClearDataBtn" Content="Clear Data" HorizontalAlignment="Left" Margin="197,151,0,0" VerticalAlignment="Top" Width="87" Height="37" Click="ClearDataBtn_Click"/>
+        <Button x:Name="AddBtn" Content="Add" HorizontalAlignment="Left" Margin="97,154,0,0" VerticalAlignment="Top" Width="86" Height="34" Click="AddBtn_Click" RenderTransformOrigin="0.5,0.5"/>
+        <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Left" Margin="97,302,0,0" VerticalAlignment="Top" Width="86" Height="35" Click="UpdateBtn_Click"/>
+        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="197,302,0,0" VerticalAlignment="Top" Width="87" Height="35" Click="DeleteBtn_Click"/>
+        <Button x:Name="ClearDataBtn" Content="Clear Data" HorizontalAlignment="Left" Margin="197,154,0,0" VerticalAlignment="Top" Width="87" Height="34" Click="ClearDataBtn_Click" RenderTransformOrigin="0.5,0.5"/>
         <Button x:Name="ReturnBtn" Content="Return to main menu" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="643,0,0,10" Click="ReturnBtn_Click" Width="135" Height="23"/>
     </Grid>
 
