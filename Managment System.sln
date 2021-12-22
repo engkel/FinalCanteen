@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectAgramkow", "..\Proje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestApi", "..\ProjectAgramkow3\UnitTestApi\UnitTestApi.csproj", "{0EE2B3D2-25B1-4B27-BFA2-C3C546A3DD97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGCanteen", "..\AGCanteen9\AGCanteen\AGCanteen.csproj", "{D5FA2710-2459-4881-BA89-261421B6AC0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{0EE2B3D2-25B1-4B27-BFA2-C3C546A3DD97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EE2B3D2-25B1-4B27-BFA2-C3C546A3DD97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EE2B3D2-25B1-4B27-BFA2-C3C546A3DD97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5FA2710-2459-4881-BA89-261421B6AC0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5FA2710-2459-4881-BA89-261421B6AC0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5FA2710-2459-4881-BA89-261421B6AC0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5FA2710-2459-4881-BA89-261421B6AC0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
