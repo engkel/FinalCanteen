@@ -28,7 +28,7 @@ namespace Managment_System
         }
 
         //accessing database for the data grid
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-G3GFTK2;Initial Catalog=CanteenDB;Integrated Security=True");
+        SqlConnection con = new SqlConnection($@"Data Source={Settings.ServerName};Initial Catalog=CanteenDB;Integrated Security=True");
 
         //class for clearing out the data
         public void clearData()

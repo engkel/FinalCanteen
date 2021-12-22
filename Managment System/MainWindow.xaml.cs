@@ -25,6 +25,13 @@ namespace Managment_System
         public MainWindow()
         {
             InitializeComponent();
+
+            bool timeToExport = checkIfTimeForExport.checkIfTimeForExport(); //(checkIfTimeForExport returns a bool - if(checkIfTimeForExport == true) {run export part}
+            Console.WriteLine("Time to export?" + timeToExport);
+            if (timeToExport) //if .. is true.
+            {
+                ExportToExcel.Program.Run();
+            }
         }
 
         //Redirecting to the Employee Managment window
