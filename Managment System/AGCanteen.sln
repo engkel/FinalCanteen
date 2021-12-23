@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGCanteen", "AGCanteen\AGCanteen.csproj", "{D5FA2710-2459-4881-BA89-261421B6AC0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5FA2710-2459-4881-BA89-261421B6AC0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5FA2710-2459-4881-BA89-261421B6AC0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5FA2710-2459-4881-BA89-261421B6AC0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5FA2710-2459-4881-BA89-261421B6AC0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F4E5930-CC2D-4D48-BB7D-7FC6C102E022}
+	EndGlobalSection
+EndGlobal
