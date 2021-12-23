@@ -1,0 +1,26 @@
+﻿@model ProjectAgramkow.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmpId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

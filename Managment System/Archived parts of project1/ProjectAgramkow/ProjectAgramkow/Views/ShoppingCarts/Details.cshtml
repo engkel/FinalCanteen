@@ -1,0 +1,42 @@
+﻿@model ProjectAgramkow.Models.ShoppingCart
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ShoppingCart</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FoodItem.ItemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FoodItem.ItemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Receipt.ReceiptNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Receipt.ReceiptNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ShoppingCartId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
