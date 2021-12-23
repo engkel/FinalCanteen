@@ -1,0 +1,68 @@
+﻿@model AGCanteen.Models.UserModel
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<!-- Created by Andrej and David -->
+
+<section class="bg-dark text-light py-2 px-5 text-center text-sm-start">
+    <div class="container">
+        <!-- FlexBox-->
+        <div class="d-sm-flex flex-column p-5">
+
+
+
+            <img class="img-fluid mx-auto w-50 d-none d-sm-block py-5" src="~/Content/image/agramkow_logo.png" alt="">
+            <br>
+            <br>
+            <!-- FlexBox content-->
+            <div class="container text-center">
+
+                <h1>Please place your<span class="text-warning"> RFID Card</span> on the scanner to log in</h1>
+
+                @using (Html.BeginForm("logInCheck", "Home", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal text-center">
+                        <h4>UserModel</h4>
+
+                        <hr />
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group " id="formForLoginToBeHidden">
+
+                            <div class="col-md-10 text-center">
+                                @Html.PasswordFor(model => model.Id, new { htmlAttribute = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+                }
+
+            </div>
+
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+</section>
+
+

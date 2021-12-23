@@ -1,0 +1,13 @@
+/* Author: David & Andrej*/
+
+/* A hacky way to hide the input field if we want to. opacity=0 */
+#formForLoginToBeHidden {
+   opacity: 100;
+}
+
+.LunchIcon {
+   width: auto;
+   height: auto;
+   max-width: 400px; 
+   max-height: 350px;
+  }

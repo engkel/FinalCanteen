@@ -1,0 +1,179 @@
+﻿@using AGCanteen;
+@model AGCanteen.Models.CanteenModel
+
+
+@{
+    ViewBag.Title = "Canteen";
+}
+<!-- Created by Andrej -->
+<!-- Navbar-->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+    <a href="#" class="navbar-brand px-5">AG Canteen</a>
+    <!--Toggles navbar to become a button on smaller screen -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--Collapse is used to make a responsive website that collapses on smaller screens -->
+    <div class="collapse navbar-collapse" id="navMenu">
+
+        <ul class="navbar-nav">
+            <li class="nav-item bg-success">
+                <a href="#Breakfast" class="nav-link p-4 lead">Breakfast</a>
+            </li>
+            <li class="nav-item">
+                <a href="#Favourites" class="nav-link p-4 lead">Favourites</a>
+
+            </li>
+            <li class="nav-item">
+                <a href="#Guide" class="nav-link p-4 lead">Quick Guide</a>
+            </li>
+            @foreach (var user in Model.User)
+            {
+                <li class="nav-item  end-0 p-3 lead">
+                    <p class="navbar-text">Signed in as @user.name  </p>
+                </li>
+            }
+
+
+            <li>
+                <a href="@Url.Action("Myorder", "Home")">
+                    <button class="btn btn-link btn-md my-1 position-absolute bottom-0 end-0 p-5"><i class="bi bi-cart h3"></i><span class="badge">@Session["count"]</span>  </button>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+</nav>
+
+<!--Lunch Order (using FlexBox) -->
+
+<section class="bg-dark text-light py-2 px-5 text-center text-sm-start">
+    <div class="container">
+        <!-- FlexBox-->
+        <div class="d-sm-flex align-items-center justify-content-between">
+            <!-- FlexBox content-->
+            <div>
+                <h1>Order your <span class="text-warning">Lunch</span></h1>
+                <p class="lead my-4">
+                    Don't forget to order your lunch for the next week, before Thursday!
+                </p>
+                <button class="btn btn-primary btn-lg my-1" data-bs-toggle="modal" data-bs-target="#Order">Order Now</button>
+            </div>
+            <img class="img-fluid w-50 d-none d-sm-block LunchIcon" src="~/Content/image/eating-svgrepo-com.svg" alt="">
+
+
+        </div>
+    </div>
+
+
+</section>
+
+
+
+<!--Lunch Modal -->
+
+<div class="modal fade" id="Order" tabindex="-1" aria-labelledby="OrderLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="OrderLabel"> Lunch order for the upcoming week</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="list-group">
+                    <label class="list-group-item">
+                        <div class="fw-bold py-2">Monday</div>
+                        <input class="form-check-input me-1" type="checkbox" value="">
+                        Monday Menu
+                    </label>
+                    <label class="list-group-item">
+                        <div class="fw-bold py-2">Tuesday</div>
+                        <input class="form-check-input me-1" type="checkbox" value="">
+                        Tuesday Menu
+                    </label>
+                    <label class="list-group-item">
+                        <div class="fw-bold py-2">Wednesday</div>
+                        <input class="form-check-input me-1" type="checkbox" value="">
+                        Wednesday Menu
+                    </label>
+                    <label class="list-group-item">
+                        <div class="fw-bold py-2">Thursday</div>
+                        <input class="form-check-input me-1" type="checkbox" value="">
+                        Thursday Menu
+                    </label>
+                    <label class="list-group-item">
+                        <div class="fw-bold py-2">Friday</div>
+                        <input class="form-check-input me-1" type="checkbox" value="">
+                        Friday Menu
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Order</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--Breakfast Menu -->
+
+<section class="pt-3">
+
+    <div class="container">
+
+        <div class="row text-center">
+            <!--We use col-md to make the collumns appear on medium screens and up, and collapse on smaller screens -->
+            @foreach (var item in Model.Items)
+            {
+
+                <div class="col-lg-2 d-flex align-items-stretch pb-3">
+                    <div class="card h-100 w-100 bg-dark text-light">
+                        <div class="card-body text-center">
+
+                            <h1 class="card-icon mb-3">
+                                @if (item.Category == 1)
+                                {
+                                    <i class="bi bi-egg-fried"></i>
+                                }
+                                else
+                                {
+                                    <i class="bi bi-cup-straw"></i>
+                                }
+                            </h1>
+                            <br>
+                            <h3 class="card-title">
+                                @item.Name
+                            </h3>
+                            
+                            <br>
+                            <p class="price">
+
+                                Price: @item.Price DKK
+                            </p>
+
+
+
+                            <a href="@Url.Action("Add", "Home",item)" class="btn btn-primary">Add to Basket</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</section>
+
+

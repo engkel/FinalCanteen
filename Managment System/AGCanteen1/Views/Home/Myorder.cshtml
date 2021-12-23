@@ -1,0 +1,100 @@
+﻿@using AGCanteen;
+@model IEnumerable<AGCanteen.Models.BreakfastModel>
+
+@{
+    ViewBag.Title = "Myorder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    int sum = 0;
+}
+<!-- Created by Andrej -->
+<!-- Navbar-->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+    <a href="#" class="navbar-brand px-5">AG Canteen</a>
+    <!--Toggles navbar to become a button on smaller screen -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--Collapse is used to make a responsive website that collapses on smaller screens -->
+    <div class="collapse navbar-collapse" id="navMenu">
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="@Url.Action("Goback", "Home")" class="nav-link p-4 lead">Breakfast</a>
+            </li>
+            <li class="nav-item">
+                <a href="#Favourites" class="nav-link p-4 lead">Favourites</a>
+
+            </li>
+            <li class="nav-item">
+                <a href="#Guide" class="nav-link p-4 lead">Quick Guide</a>
+            </li>
+
+            <li>
+
+                <a href="@Url.Action("Myorder", "Home")">
+                    <button class="btn btn-link btn-md my-1 position-absolute bottom-0 end-0 p-5 bg-success" data-bs-toggle="modal" data-bs-target="#ShoppingCart"><i class="bi bi-cart h3"></i><span class="badge">@Session["count"]</span>  </button>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+</nav>
+
+<div id="dvContents">
+    <table class="table table-hover" width="100%">
+        <thead>
+            <tr>
+                <th> ItemID </th>
+                <th> Item Name </th>
+                <th> Quantity</th>
+                <th> Price </th>
+                <th> Remove </th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td> @x.ItemID </td>
+                    <td> @x.Name </td>
+                    <td> @x.quantity </td>
+                    <td> @(x.Price*x.quantity) DKK </td>
+                    <td>
+
+                        <button id="btn_delete" class="label label-primary" data-ItemID="@x.ItemID" onclick="location.href='@Url.Action("Remove", "Home", x)'">
+                            <i class="bi bi-trash h3"></i>
+                        </button>
+                        @*<a href="@Url.Action("Remove ","Home",x)" class="btn btn-primary"><i class="bi bi-trash h3"></i></a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+        @foreach (var x in Model)
+        {
+            sum = Convert.ToInt32((x.Price*x.quantity)) + sum;
+        }
+
+        <tfoot>
+            <tr> <td> </td>   <td> </td>   <td> <b> Total </b></td> <td> @sum DKK</td>   </tr>
+
+        </tfoot>
+
+    </table>
+    <br>
+
+    @*<button type="button" class="btn btn-success">Complete your Order</button>*@
+
+    <a href="@Url.Action("CompleteOrder", "Home")" class="btn btn-success">Complete your Order</a>
+
+
+    <button type="button" class="btn btn-warning">Place Order</button>
+
+</div>

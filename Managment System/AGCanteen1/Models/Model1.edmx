@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CanteenDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="int" Nullable="false" />
+          <Property Name="EmpName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FoodCategory">
+          <Key>
+            <PropertyRef Name="CategoryNumber" />
+          </Key>
+          <Property Name="CategoryNumber" Type="int" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FoodItems">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ItemPrice" Type="int" Nullable="false" />
+          <Property Name="CategoryNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="Receipt">
+          <Key>
+            <PropertyRef Name="ReceiptNumber" />
+          </Key>
+          <Property Name="ReceiptNumber" Type="int" Nullable="false" />
+          <Property Name="Receiptcreated" Type="datetime" Nullable="false" />
+          <Property Name="EmpId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ShoppingCart">
+          <Key>
+            <PropertyRef Name="ShoppingCartId" />
+          </Key>
+          <Property Name="ShoppingCartId" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="ReceiptNumber" Type="int" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__FoodItems__Categ__2C3393D0">
+          <End Role="FoodCategory" Type="Self.FoodCategory" Multiplicity="0..1" />
+          <End Role="FoodItems" Type="Self.FoodItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodCategory">
+              <PropertyRef Name="CategoryNumber" />
+            </Principal>
+            <Dependent Role="FoodItems">
+              <PropertyRef Name="CategoryNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Receipt__EmpId__276EDEB3">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmpId" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShoppingC__ItemI__300424B4">
+          <End Role="FoodItems" Type="Self.FoodItems" Multiplicity="1" />
+          <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodItems">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="ShoppingCart">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShoppingC__Recei__2F10007B">
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="1" />
+          <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receipt">
+              <PropertyRef Name="ReceiptNumber" />
+            </Principal>
+            <Dependent Role="ShoppingCart">
+              <PropertyRef Name="ReceiptNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CanteenDBModelStoreContainer">
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FoodCategory" EntityType="Self.FoodCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FoodItems" EntityType="Self.FoodItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Receipt" EntityType="Self.Receipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShoppingCart" EntityType="Self.ShoppingCart" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__FoodItems__Categ__2C3393D0" Association="Self.FK__FoodItems__Categ__2C3393D0">
+            <End Role="FoodCategory" EntitySet="FoodCategory" />
+            <End Role="FoodItems" EntitySet="FoodItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Receipt__EmpId__276EDEB3" Association="Self.FK__Receipt__EmpId__276EDEB3">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Receipt" EntitySet="Receipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShoppingC__ItemI__300424B4" Association="Self.FK__ShoppingC__ItemI__300424B4">
+            <End Role="FoodItems" EntitySet="FoodItems" />
+            <End Role="ShoppingCart" EntitySet="ShoppingCart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShoppingC__Recei__2F10007B" Association="Self.FK__ShoppingC__Recei__2F10007B">
+            <End Role="Receipt" EntitySet="Receipt" />
+            <End Role="ShoppingCart" EntitySet="ShoppingCart" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CanteenDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="Int32" Nullable="false" />
+          <Property Name="EmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Receipts" Relationship="Self.FK__Receipt__EmpId__276EDEB3" FromRole="Employee" ToRole="Receipt" />
+        </EntityType>
+        <EntityType Name="FoodCategory">
+          <Key>
+            <PropertyRef Name="CategoryNumber" />
+          </Key>
+          <Property Name="CategoryNumber" Type="Int32" Nullable="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="FoodItems" Relationship="Self.FK__FoodItems__Categ__2C3393D0" FromRole="FoodCategory" ToRole="FoodItems" />
+        </EntityType>
+        <EntityType Name="FoodItem">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="ItemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ItemPrice" Type="Int32" Nullable="false" />
+          <Property Name="CategoryNumber" Type="Int32" />
+          <NavigationProperty Name="FoodCategory" Relationship="Self.FK__FoodItems__Categ__2C3393D0" FromRole="FoodItems" ToRole="FoodCategory" />
+          <NavigationProperty Name="ShoppingCarts" Relationship="Self.FK__ShoppingC__ItemI__300424B4" FromRole="FoodItems" ToRole="ShoppingCart" />
+        </EntityType>
+        <EntityType Name="Receipt">
+          <Key>
+            <PropertyRef Name="ReceiptNumber" />
+          </Key>
+          <Property Name="ReceiptNumber" Type="Int32" Nullable="false" />
+          <Property Name="Receiptcreated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EmpId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Receipt__EmpId__276EDEB3" FromRole="Receipt" ToRole="Employee" />
+          <NavigationProperty Name="ShoppingCarts" Relationship="Self.FK__ShoppingC__Recei__2F10007B" FromRole="Receipt" ToRole="ShoppingCart" />
+        </EntityType>
+        <EntityType Name="ShoppingCart">
+          <Key>
+            <PropertyRef Name="ShoppingCartId" />
+          </Key>
+          <Property Name="ShoppingCartId" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="ReceiptNumber" Type="Int32" Nullable="false" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FoodItem" Relationship="Self.FK__ShoppingC__ItemI__300424B4" FromRole="ShoppingCart" ToRole="FoodItems" />
+          <NavigationProperty Name="Receipt" Relationship="Self.FK__ShoppingC__Recei__2F10007B" FromRole="ShoppingCart" ToRole="Receipt" />
+        </EntityType>
+        <Association Name="FK__Receipt__EmpId__276EDEB3">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmpId" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FoodItems__Categ__2C3393D0">
+          <End Role="FoodCategory" Type="Self.FoodCategory" Multiplicity="0..1" />
+          <End Role="FoodItems" Type="Self.FoodItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodCategory">
+              <PropertyRef Name="CategoryNumber" />
+            </Principal>
+            <Dependent Role="FoodItems">
+              <PropertyRef Name="CategoryNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShoppingC__ItemI__300424B4">
+          <End Role="FoodItems" Type="Self.FoodItem" Multiplicity="1" />
+          <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodItems">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="ShoppingCart">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ShoppingC__Recei__2F10007B">
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="1" />
+          <End Role="ShoppingCart" Type="Self.ShoppingCart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receipt">
+              <PropertyRef Name="ReceiptNumber" />
+            </Principal>
+            <Dependent Role="ShoppingCart">
+              <PropertyRef Name="ReceiptNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CanteenDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="FoodCategories" EntityType="Self.FoodCategory" />
+          <EntitySet Name="FoodItems" EntityType="Self.FoodItem" />
+          <EntitySet Name="Receipts" EntityType="Self.Receipt" />
+          <EntitySet Name="ShoppingCarts" EntityType="Self.ShoppingCart" />
+          <AssociationSet Name="FK__Receipt__EmpId__276EDEB3" Association="Self.FK__Receipt__EmpId__276EDEB3">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Receipt" EntitySet="Receipts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FoodItems__Categ__2C3393D0" Association="Self.FK__FoodItems__Categ__2C3393D0">
+            <End Role="FoodCategory" EntitySet="FoodCategories" />
+            <End Role="FoodItems" EntitySet="FoodItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShoppingC__ItemI__300424B4" Association="Self.FK__ShoppingC__ItemI__300424B4">
+            <End Role="FoodItems" EntitySet="FoodItems" />
+            <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ShoppingC__Recei__2F10007B" Association="Self.FK__ShoppingC__Recei__2F10007B">
+            <End Role="Receipt" EntitySet="Receipts" />
+            <End Role="ShoppingCart" EntitySet="ShoppingCarts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CanteenDBModelStoreContainer" CdmEntityContainer="CanteenDBEntities">
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="CanteenDBModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodCategories">
+            <EntityTypeMapping TypeName="CanteenDBModel.FoodCategory">
+              <MappingFragment StoreEntitySet="FoodCategory">
+                <ScalarProperty Name="CategoryNumber" ColumnName="CategoryNumber" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodItems">
+            <EntityTypeMapping TypeName="CanteenDBModel.FoodItem">
+              <MappingFragment StoreEntitySet="FoodItems">
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="CategoryNumber" ColumnName="CategoryNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Receipts">
+            <EntityTypeMapping TypeName="CanteenDBModel.Receipt">
+              <MappingFragment StoreEntitySet="Receipt">
+                <ScalarProperty Name="ReceiptNumber" ColumnName="ReceiptNumber" />
+                <ScalarProperty Name="Receiptcreated" ColumnName="Receiptcreated" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoppingCarts">
+            <EntityTypeMapping TypeName="CanteenDBModel.ShoppingCart">
+              <MappingFragment StoreEntitySet="ShoppingCart">
+                <ScalarProperty Name="ShoppingCartId" ColumnName="ShoppingCartId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ReceiptNumber" ColumnName="ReceiptNumber" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

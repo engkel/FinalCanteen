@@ -1,0 +1,69 @@
+/* Author: David & Andrej*/
+/*body {
+    background: lightblue;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    alignment: center;
+}
+
+img {
+    width: 200px;
+    alignment: center;
+}
+
+
+h1 {
+    font-weight: 600;
+    alignment: center;
+    background-color: white;
+    border: 2px solid black;
+    outline: #4cbb17 solid 10px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}*/
+
+/*
+button {
+    background: white;
+    color: black;
+    margin-top: 10px;
+    border: 1px solid black;
+    padding: 10px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+}
+*/
+
+/*div {
+    background-color: lightgrey;
+    border: #4cbb17 solid 15px ;
+    padding: 150px;
+    margin: 20px;
+    text-align: center;
+    alignment: center;
+}
+
+p {
+    font-weight: 600;
+    alignment: center;
+    background-color: white;
+    border: 2px solid black;
+    outline: #4cbb17 solid 10px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}*/
+
+/* A hacky way to hide the input field if we want to. opacity=0 */
+/*#formForLoginToBeHidden {
+    opacity: 100;
+}*/
+
+.LunchIcon {
+    width: auto;
+    height: auto;
+    max-width: 400px; 
+    max-height: 350px;
+   }
